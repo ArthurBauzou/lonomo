@@ -5,20 +5,20 @@ var request=require('request');
 
 
 /* Get the user's history */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
 
-    var id_user = 1;    //à modifier
-  
-    var getHistory = function(retfunc){
-        connection.query('SELECT * FROM lnm_historic WHERE user_historic = ?', [id_user], function(error, results, fields) {
-            if(error) res.send(error);
-            else retfunc(results);
-        });
-    }
+    var depart = req.body.departure;
+    var arriv = req.body.arrival;
 
-    getHistory(function(results) {
-        res.json(results);
-    });    
+    depart = depart.replace(/\s/g, '+');
+    arriv = arriv.replace(/\s/g, '+');
+
+    console.log('depart : '+depart+' - arrivee : '+arriv);
+
+    request('https://maps.googleapis.com/maps/api/directions/json?mode=bicycling&origin='+depart+'&destination='+arriv+'&language=fr&key=AIzaSyBy94XeHduKyseqtx3gu9tHCQXwBz9qvG8', function (error, response, body) {
+        var parsej = JSON.parse(body);
+        res.send(parsej);
+    });
 
 });
 
