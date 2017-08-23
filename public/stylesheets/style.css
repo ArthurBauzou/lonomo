@@ -5,10 +5,6 @@ body {
   font: 14px Arial, Helvetica, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
 header {
   background: #4d4d4d;
   display: flex;
@@ -19,68 +15,28 @@ header {
   color: white;
 }
 
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+header span.le-or {
+  color: black;
+}
+
 header h1 {
   font-size: 48px;
   margin-left: 64px;
   font-weight: bold;
+  margin-top: 26px;
 }
 
 header .user-zone {
   font-size: 20px;
   margin-right: 32px;
   margin-top: 48px;
-}
-
-div.form-container {
-  background: #ccc;
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
-
-form#index-form {
-  display: flex;
-  flex-flow: column nowrap;
-  width: 400px;
-  margin: 0 auto;
-}
-
-#index-form input, #index-form button {
-  font-size: 16px;
-  line-height: 24px;
-  height: 32px;
-  margin-bottom: 12px;
-  border: none;
-  border-radius: 6px;
-  padding: 6px;
-}
-
-#index-form input {
-  padding-left: 16px;
-}
-
-#index-form .button-bar {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 80%;
-  margin: 12px auto;
-}
-
-#index-form .button-bar button {
-  width: 22%;
-  height: 48px;
-  font-size: 32px;
-  background: #aaa;
-  border-radius: 3px;
-}
-
-#index-form input[type="submit"] {
-  width: 80%;
-  background: #aaa;
-  margin: 0 auto;
-  height: 40px;
-} 
-
-#index-form input[type="submit"]:hover, #index-form .button-bar button:hover {
-  background: #888;
 }

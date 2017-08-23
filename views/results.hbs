@@ -1,0 +1,34 @@
+{{> header}}
+
+<link rel='stylesheet' href='/stylesheets/results.css' />
+
+<div class="main-container">
+
+  <form id="change-search">
+    <input name="start" type="text" placeholder="adresse de départ">
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    <input name="finish" type="text" placeholder="adresse d'arrivée">
+    <button id="transport"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+  </form>
+
+  <div class="result-container">
+
+    <div class="tags-container">
+      <div class="button-bar">
+        <button id="onfoot"><i class="fa fa-child" aria-hidden="true"></i></button>
+        <button id="bicycle"><i class="fa fa-bicycle" aria-hidden="true"></i></button>
+        <button id="car"><i class="fa fa-car" aria-hidden="true"></i></button>
+        <button id="transport"><i class="fa fa-train" aria-hidden="true"></i></button>
+        <button id="sort-by">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <i class="fa fa-sort-desc" aria-hidden="true" style="font-size:50%"></i>
+        </button>
+      </div>
+
+      {{!-- ici des etiquettes  --}}
+    </div>
+
+    <iframe class="googlemap">
+    </iframe>
+  </div>
+</div>
