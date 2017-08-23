@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS lnm_historic (
 	id_historic int PRIMARY KEY AUTO_INCREMENT,
 	depart_historic varchar(100),
 	arriv_historic varchar(100),
-	date_historic TIMESTAMP,
+	date_historic TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	user_historic int,
 	FOREIGN KEY (user_historic) REFERENCES lnm_users(id_user)
 ) ENGINE=InnoDB;
