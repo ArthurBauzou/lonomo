@@ -10,11 +10,11 @@ router.post('/', function(req, res, next) {
     var depart = req.body.departure;
     var arriv = req.body.arrival;
     var mode = req.body.mode;
-  /*  var walking = req.body.walking;
+ /*   var walking = req.body.walking;
     var driving = req.body.driving;
     var bicycling = req.body.bicycling;
-    var transit = req.body.transit;
-*/
+    var transit = req.body.transit;*/
+
 
     var parsej ="";
     var results = {};
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
     depart = depart.replace(/\s/g, '+');
     arriv = arriv.replace(/\s/g, '+');
 
-   // var reqApi = function(mode){
+    //var reqApi = function(mode, retourFunc){
 
         request('https://maps.googleapis.com/maps/api/directions/json?mode='+mode+'&origin='+depart+'&destination='+arriv+'&language=fr&key=AIzaSyBy94XeHduKyseqtx3gu9tHCQXwBz9qvG8', function (error, response, body) {
             parsej = JSON.parse(body);
@@ -58,7 +58,8 @@ router.post('/', function(req, res, next) {
                 }
 
                 var altFunc = function(retFunc){
-                if(mode=="walking"||mode=="bicycling"){
+                        
+                    if(mode=="walking"||mode=="bicycling"){
                         results["altitude"] = {};
                         var coords = [];
                         var altFunc;
@@ -91,23 +92,59 @@ router.post('/', function(req, res, next) {
                     else retFunc(0);
                 }
 
+
+                altFunc(function(resultat){
+                    results["altitude"] = resultat;
+                    //retourFunc(results);
+                    res.send(results)
+                });
+
             }
             else {
                 results["no_results"] = "Aucun resultat disponible pour ce moyen de transport";
+                //retourFunc(results);
+                res.send(results)
             }
-
-            altFunc(function(resultat){
-                    results["altitude"] = resultat;
-                    //return results;
-                    res.send(results)
-            });
-
+        
         });
 
+    //}
+/*
+    
+    var resultApi = [];
+
+    if(walking){
+        reqApi(walking, function(results){
+            console.log("res Walk : "+results);
+            resultApi.push(results);
+        })
+    }
 
 
+    if(driving){
+        reqApi(driving, function(results){
+            console.log("res driv : "+driving);
+            resultApi.push(results);
+        })
+    }
 
- //   }
+
+    if(transit){
+        reqApi(transit, function(results){
+            console.log("res transit : "+transit);
+            resultApi.push(results);
+        })
+    }
+
+
+    if(bicycling){
+        reqApi(bicycling, function(results){
+            console.log("res cycl : "+bicycling);
+            resultApi.push(results);
+        })
+    }
+
+    res.send(resultApi);*/
 
 });
 
