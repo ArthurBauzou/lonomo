@@ -78,7 +78,31 @@ div.result-container {
     height: 64px;
     background: #e6e6e6;
     margin-bottom: 8px;
+    flex-flow: row nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  div.result-tag span.duration {
+
+  div.result-tag:hover {
+    background: #f2f2f2;
+  }
+
+  div.result-tag div.result-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    margin-left: 8px;
+  }
+
+  div.result-tag div.modelogo {
+    font-size: 48px;
+    margin-right: 16px;
+  }
+
+  div.result-content span.result-main {
     font-size: 32px;
+  }
+  span.result-main i {
+    margin-right: 3px;
   }
