@@ -1,0 +1,58 @@
+{{> header}}
+
+<link rel='stylesheet' href='/stylesheets/results.css' />
+
+<div class="main-container">
+
+  <form id="change-search">
+    <input name="start" type="text" placeholder="adresse de départ">
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    <input name="finish" type="text" placeholder="adresse d'arrivée">
+    <button id="transport"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+  </form>
+
+  <div class="result-container">
+
+    <div class="tags-container">
+      <div class="button-bar">
+        <button id="onfoot"><i class="fa fa-child" aria-hidden="true"></i></button>
+        <button id="bicycle"><i class="fa fa-bicycle" aria-hidden="true"></i></button>
+        <button id="car"><i class="fa fa-car" aria-hidden="true"></i></button>
+        <button id="transport"><i class="fa fa-train" aria-hidden="true"></i></button>
+        <button id="sort-by">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <i class="fa fa-sort-desc" aria-hidden="true" style="font-size:50%"></i>
+        </button>
+      </div>
+      
+      {{#each tags}}
+        <div class="result-tag">
+
+          <div class="result-content">
+            <span class="result-main"><i class="fa fa-clock-o" aria-hidden="true"></i>{{duration}}</span>
+            <span class="result-secondary">{{distance}}km</span>
+          </div>
+
+          <div class="modelogo">
+            {{#if walking}}<i class="fa fa-child" aria-hidden="true"></i>{{/if}}
+            {{#if bicycle}}<i class="fa fa-bicycle" aria-hidden="true"></i>{{/if}}
+            {{#if car}}<i class="fa fa-car" aria-hidden="true"></i>{{/if}}
+            {{#if transit}}<i class="fa fa-train" aria-hidden="true"></i>{{/if}}
+          </div>
+
+        </div>
+      {{/each}}
+
+    </div>
+
+    <div id="googlemap">
+      lacarte
+    </div>
+  </div>
+</div>
+
+<script src="javascripts/maps.js"></script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy94XeHduKyseqtx3gu9tHCQXwBz9qvG8&callback=initMap">
+</script>
