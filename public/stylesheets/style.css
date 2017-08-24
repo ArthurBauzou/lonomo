@@ -1,8 +1,42 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding: 50px; */
+  font: 14px Arial, Helvetica, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+header {
+  background: #4d4d4d;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 80px;
+  font-family: aharoni, sans-serif;
+  color: white;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+header span.le-or {
+  color: black;
+}
+
+header h1 {
+  font-size: 48px;
+  margin-left: 64px;
+  font-weight: bold;
+  margin-top: 26px;
+}
+
+header .user-zone {
+  font-size: 20px;
+  margin-right: 32px;
+  margin-top: 48px;
 }
