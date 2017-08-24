@@ -1,27 +1,28 @@
-// This example displays an address form, using the autocomplete feature
-// of the Google Places API to help users fill in the information.
-
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 var autocomplete;
 var autocomplete2;
+
+let autoDep = document.getElementById('departure')
+let autoArr = document.getElementById('arrival')
+
+function validInput(el) {
+    el.setAttribute('class', 'okay')
+}
 
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
   // location types.
   autocomplete = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */(document.getElementById('departure')),
+      /** @type {!HTMLInputElement} */(autoDep),
       {types: ['geocode']});
   autocomplete2 = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */(document.getElementById('arrival')),
+      /** @type {!HTMLInputElement} */(autoArr),
       {types: ['geocode']});
 
   // When the user selects an address from the dropdown, populate the address
   // fields in the form.
-  // autocomplete.addListener('place_changed', fillInAddress);
-  // autocompletes2.addListener('place_changed', fillInAddress);
+//   autocomplete.addListener('place_changed', validInput(autoDep));
+//   autocomplete2.addListener('place_changed', validInput(autoArr));
 }
 
 // Bias the autocomplete object to the user's geographical location,
