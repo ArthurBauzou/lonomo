@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
     request('https://maps.googleapis.com/maps/api/directions/json?mode='+mode+'&origin='+depart+'&destination='+arriv+'&language=fr&key=AIzaSyBy94XeHduKyseqtx3gu9tHCQXwBz9qvG8', function (error, response, body) {
         var parsej = JSON.parse(body);
 
-        //var results = parsej;
+        var results = parsej;
         var results = {};
 
         if(parsej["routes"][0]){
@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
             }
 
             if(mode == "driving"){
-                results["tarifs"] = results["distance"].value/1000*0.1 //calcul approximatif du cout en carburant
+                results["tarifs"] = (results["distance"].value/1000*0.11).toFixed(2) //calcul approximatif du cout en carburant
             }
 
         }
