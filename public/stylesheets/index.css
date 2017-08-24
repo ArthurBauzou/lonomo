@@ -1,16 +1,28 @@
-div.form-container {
-  background: #ccc;
+div.introduction {
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 32px;
+  text-align: center;
+  background-color: #ccc;
+  font-weight: 200;
+}
+div.introduction p {
+  width: 60%;
+  margin: 0 auto;
 }
 
+div.form-container {
+  background: #ccc;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
 form#index-form {
   display: flex;
   flex-flow: column nowrap;
   width: 400px;
   margin: 0 auto;
 }
-
 #index-form input, #index-form button {
   font-size: 16px;
   line-height: 24px;
@@ -20,11 +32,9 @@ form#index-form {
   border-radius: 6px;
   padding: 6px;
 }
-
 #index-form input {
   padding-left: 16px;
 }
-
 #index-form .button-bar {
   display: flex;
   flex-flow: row nowrap;
@@ -39,6 +49,13 @@ form#index-form {
   font-size: 32px;
   background: #aaa;
   border-radius: 3px;
+}
+
+button.btnActive {
+  color: black;
+}
+button.btnInactive {
+  color: #666;
 }
 
 #index-form input[type="submit"] {

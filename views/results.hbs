@@ -5,9 +5,9 @@
 <div class="main-container">
 
   <form id="change-search">
-    <input name="start" type="text" placeholder="adresse de départ">
+    <input id="departure" name="departure" type="text" placeholder="adresse de départ">
     <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    <input name="finish" type="text" placeholder="adresse d'arrivée">
+    <input id="arrival" name="arrival" type="text" placeholder="adresse d'arrivée">
     <button id="transport"><i class="fa fa-refresh" aria-hidden="true"></i></button>
   </form>
 
@@ -51,8 +51,9 @@
   </div>
 </div>
 
-<script src="javascripts/maps.js"></script>
+<script src="/javascripts/autoAdress.js"></script>
+<script src="/javascripts/maps.js"></script>
 
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy94XeHduKyseqtx3gu9tHCQXwBz9qvG8&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy94XeHduKyseqtx3gu9tHCQXwBz9qvG8&libraries=places&callback=initMap">
 </script>

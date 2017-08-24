@@ -104,5 +104,6 @@ div.result-container {
     font-size: 32px;
   }
   span.result-main i {
-    margin-right: 3px;
+    font-size: 24px;
+    margin-right: 6px;
   }

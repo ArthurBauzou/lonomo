@@ -1,29 +1,38 @@
 {{> header}}
 
-{{!-- <header>
-  <h1>Lostnomore</h1>
-  <div class="user-zone">
-    <a href="#">sign-up</a>
-    <span class="le-or">or</span>
-    <a href="#">log-in</a>
-  </div>
-</header> --}}
-
 <link rel='stylesheet' href='/stylesheets/index.css' />
+
+<div class="introduction">
+  <p>Entrez deux adresses et accedez à google maps en moins bien !</p>
+</div>
 
 <div class="form-container">
   <form id="index-form">
-    <input name="start" type="text" placeholder="adresse de départ">
-    <input name="finish" type="text" placeholder="adresse d'arrivée">
+    <input id="departure" name="departure" type="text" placeholder="adresse de départ" class=""> 
+    <input id="arrival" name="arrival" type="text" placeholder="adresse d'arrivée" class="">
 
     <div class="button-bar">
-      <button id="onfoot"><i class="fa fa-child" aria-hidden="true"></i></button>
-      <button id="bicycle"><i class="fa fa-bicycle" aria-hidden="true"></i></button>
-      <button id="car"><i class="fa fa-car" aria-hidden="true"></i></button>
-      <button id="transport"><i class="fa fa-train" aria-hidden="true"></i></button>
+      <button name="walking" class="btnActive" type="button">
+        <i class="fa fa-child" aria-hidden="true"></i>
+      </button>
+      <button name="bicycling" class="btnActive" type="button">
+        <i class="fa fa-bicycle" aria-hidden="true"></i>
+      </button>
+      <button name="driving" class="btnActive" type="button">
+        <i class="fa fa-car" aria-hidden="true"></i>
+      </button>
+      <button name="transit" class="btnActive" type="button">
+        <i class="fa fa-train" aria-hidden="true"></i>
+      </button>
     </div>
 
     <input type="submit" value="rechercher des trajets">
   </form>
   <a href="/results">lien vers results</a>
 </div>
+
+<script src="/javascripts/index.js"></script>
+<script src="/javascripts/autoAdress.js"></script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy94XeHduKyseqtx3gu9tHCQXwBz9qvG8&libraries=places&callback=initAutocomplete">
+</script>
