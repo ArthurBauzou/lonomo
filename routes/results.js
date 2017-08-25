@@ -23,10 +23,7 @@ router.post('/', (req, res, next)=> {
 })
 
 router.get('/', function(req, res, next) {
-<<<<<<< HEAD
-=======
 
->>>>>>> 1988a6c8adb7ee8f39693dbb6071d27c462ad400
   
   res.render('results', {
     title: 'Lonomo',
