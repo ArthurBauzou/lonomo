@@ -51,12 +51,12 @@ router.post('/', function(req, res, next) {
                     results["departure_time"] = parsej["routes"][0]["legs"][0]["departure_time"];
 
                     if(parsej["routes"][0]["fare"]) results["tarifs"] = parsej["routes"][0]["fare"]["text"];
-                    else results["tarifs"] = "0,00€"
+                    else results["tarifs"] = "0,00 €"
                 }
 
                 if(mode == "driving"){
                     results["driving"] = true;
-                    results["tarifs"] = (results["distance"].value/1000*0.11).toFixed(2) //calcul approximatif du cout en carburant
+                    results["tarifs"] = (results["distance"].value/1000*0.11).toFixed(2)+" €" //calcul approximatif du cout en carburant
                 }
 
                 var altFunc = function(retFunc){
