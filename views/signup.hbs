@@ -8,10 +8,10 @@
 
 <div class="form-container">
   <form id="index-form">
-    <input id="nom" name="nom" type="text" placeholder="nom" class=""> 
-	<input id="prenom" name="prenom" type="text" placeholder="prenom" class=""> 
-	<input id="email" name="email" type="text" placeholder="email" class=""> 
-	<input id="password" name="password" type="password" placeholder="password" class=""> 
+    <input id="nom" name="nom" type="text" placeholder="nom - contient 6 caractères" class="" required pattern="[A-Za-z]{6}"> 
+	<input id="prenom" name="prenom" type="text" placeholder="prenom - contient 6 caractères" class="" required pattern="[A-Za-z]{6}"> 
+	<input id="email" name="email" type="text" placeholder="email" class="" required pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"> 
+	<input id="password" name="password" type="password" placeholder="password - contient 6 ou plus caractères" class="" required pattern=".{6,}"> 
 
     <input type="submit" value="Enregistrer">
   </form>
