@@ -7,7 +7,7 @@
 </div>
 
 <div class="form-container">
-  <form id="index-form">
+  <form id="index-form" action="/results" method="post">
     <input id="departure" name="departure" type="text" placeholder="adresse de départ" class=""> 
     <input id="arrival" name="arrival" type="text" placeholder="adresse d'arrivée" class="">
 
@@ -25,6 +25,11 @@
         <i class="fa fa-train" aria-hidden="true"></i>
       </button>
     </div>
+
+    <input type="checkbox" name="walking" value="true" checked hidden>
+    <input type="checkbox" name="bicycling" value="true" checked hidden>
+    <input type="checkbox" name="driving" value="true" checked hidden>
+    <input type="checkbox" name="transit" value="true" checked hidden>
 
     <input type="submit" value="rechercher des trajets">
   </form>

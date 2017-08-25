@@ -29,14 +29,14 @@
         <div class="result-tag">
 
           <div class="result-content">
-            <span class="result-main"><i class="fa fa-clock-o" aria-hidden="true"></i>{{duration}}</span>
-            <span class="result-secondary">{{distance}}km</span>
+            <span class="result-main"><i class="fa fa-clock-o" aria-hidden="true"></i>{{duration.text}}</span>
+            <span class="result-secondary">{{distance.text}}km</span>
           </div>
 
           <div class="modelogo">
             {{#if walking}}<i class="fa fa-child" aria-hidden="true"></i>{{/if}}
-            {{#if bicycle}}<i class="fa fa-bicycle" aria-hidden="true"></i>{{/if}}
-            {{#if car}}<i class="fa fa-car" aria-hidden="true"></i>{{/if}}
+            {{#if bicycling}}<i class="fa fa-bicycle" aria-hidden="true"></i>{{/if}}
+            {{#if driving}}<i class="fa fa-car" aria-hidden="true"></i>{{/if}}
             {{#if transit}}<i class="fa fa-train" aria-hidden="true"></i>{{/if}}
           </div>
 
