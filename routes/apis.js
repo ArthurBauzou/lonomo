@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var request=require('request');
+var utf8 = require('utf8');
 
 
 
@@ -9,21 +10,21 @@ router.post('/', function(req, res, next) {
 
     var depart = req.body.departure;
     var arriv = req.body.arrival;
-    var mode = req.body.mode;
- /*   var walking = req.body.walking;
+
+    var walking = req.body.walking;
     var driving = req.body.driving;
     var bicycling = req.body.bicycling;
-    var transit = req.body.transit;*/
+    var transit = req.body.transit;
 
 
     var parsej ="";
     var results = {};
 
-    depart = depart.replace(/\s/g, '+');
-    arriv = arriv.replace(/\s/g, '+');
+    depart = utf8.encode(depart.replace(/\s/g, '+'));
+    arriv = utf8.encode(arriv.replace(/\s/g, '+'));
 
-    //var reqApi = function(mode, retourFunc){
-
+    var reqApi = function(mode, retourFunc){
+        
         request('https://maps.googleapis.com/maps/api/directions/json?mode='+mode+'&origin='+depart+'&destination='+arriv+'&language=fr&key=AIzaSyBy94XeHduKyseqtx3gu9tHCQXwBz9qvG8', function (error, response, body) {
             parsej = JSON.parse(body);
 
@@ -38,6 +39,7 @@ router.post('/', function(req, res, next) {
                 results["start_address"] = parsej["routes"][0]["legs"][0]["start_address"];
                 results["end_location"] = parsej["routes"][0]["legs"][0]["end_location"];
                 results["start_location"] = parsej["routes"][0]["legs"][0]["start_location"];
+
 
                 if(mode == "bicycling") results["bicycling"] = true;
                 if(mode == "walking") results["walking"] = true;
@@ -95,56 +97,43 @@ router.post('/', function(req, res, next) {
 
                 altFunc(function(resultat){
                     results["altitude"] = resultat;
-                    //retourFunc(results);
-                    res.send(results)
+                    retourFunc(results);
                 });
-
             }
             else {
                 results["no_results"] = "Aucun resultat disponible pour ce moyen de transport";
-                //retourFunc(results);
-                res.send(results)
+                retourFunc(results);
             }
         
         });
 
-    //}
-/*
+    }
+
     
     var resultApi = [];
 
-    if(walking){
-        reqApi(walking, function(results){
-            console.log("res Walk : "+results);
-            resultApi.push(results);
+    reqApi("walking", function(resultsWalk){
+        reqApi("driving", function(resultsDriv){
+            reqApi("bicycling", function(resultsBicy){
+                reqApi("transit", function(resultsTrans){
+                    if(driving){
+                        resultApi.push(resultsDriv)
+                    }
+                    if(walking){
+                        resultApi.push(resultsWalk)
+                    }
+                    if(transit){
+                        resultApi.push(resultsTrans)
+                    }
+                    if(bicycling){
+                        resultApi.push(resultsBicy)
+                    }
+                    res.send(resultApi);
+                })
+            })
         })
-    }
-
-
-    if(driving){
-        reqApi(driving, function(results){
-            console.log("res driv : "+driving);
-            resultApi.push(results);
-        })
-    }
-
-
-    if(transit){
-        reqApi(transit, function(results){
-            console.log("res transit : "+transit);
-            resultApi.push(results);
-        })
-    }
-
-
-    if(bicycling){
-        reqApi(bicycling, function(results){
-            console.log("res cycl : "+bicycling);
-            resultApi.push(results);
-        })
-    }
-
-    res.send(resultApi);*/
+    })
+    
 
 });
 
