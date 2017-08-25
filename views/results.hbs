@@ -5,9 +5,9 @@
 <div class="main-container">
 
   <form id="change-search">
-    <input id="departure" name="departure" type="text" placeholder="adresse de départ">
+    <input id="departure" name="departure" type="text" placeholder="adresse de départ" value="{{start_address}}">
     <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    <input id="arrival" name="arrival" type="text" placeholder="adresse d'arrivée">
+    <input id="arrival" name="arrival" type="text" placeholder="adresse d'arrivée" value="{{end_address}}">
     <button id="transport"><i class="fa fa-refresh" aria-hidden="true"></i></button>
   </form>
 
@@ -30,7 +30,7 @@
 
           <div class="result-content">
             <span class="result-main"><i class="fa fa-clock-o" aria-hidden="true"></i>{{duration.text}}</span>
-            <span class="result-secondary">{{distance.text}}km</span>
+            <span class="result-secondary">{{distance.text}}</span>
           </div>
 
           <div class="modelogo">
