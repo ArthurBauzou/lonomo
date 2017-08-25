@@ -5,9 +5,9 @@
 <div class="main-container">
 
   <form id="change-search">
-    <input id="departure" name="departure" type="text" placeholder="adresse de départ" value="{{start_address}}">
+    <input id="departure" name="departure" type="text" placeholder="adresse de départ" value="{{tags.0.start_address}}">
     <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    <input id="arrival" name="arrival" type="text" placeholder="adresse d'arrivée" value="{{end_address}}">
+    <input id="arrival" name="arrival" type="text" placeholder="adresse d'arrivée" value="{{tags.0.end_address}}">
     <button id="transport"><i class="fa fa-refresh" aria-hidden="true"></i></button>
   </form>
 
