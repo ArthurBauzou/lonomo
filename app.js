@@ -14,7 +14,9 @@ var history = require('./routes/history');
 var apis = require('./routes/apis');
 var login = require('./routes/login');
 //var authenticate = require('./lib/authenticate');
-var results = require('./routes/results')
+var results = require('./routes/results');
+var signup = require('./routes/signup');
+
 
 var app = express();
 
@@ -38,6 +40,11 @@ app.use('/apis', apis);
 app.use('/login', login);
 //app.use('/api', authenticate);
 app.use('/results', results);
+app.use('/signup', signup);
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
