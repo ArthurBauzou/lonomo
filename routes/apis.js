@@ -87,7 +87,7 @@ router.post('/', function(req, res, next) {
                                 }
                             }
                             
-                            retFunc(elevation);
+                            retFunc(elevation.toFixed(0));
                         })
                     
                     }

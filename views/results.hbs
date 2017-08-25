@@ -30,7 +30,8 @@
 
           <div class="result-content">
             <span class="result-main"><i class="fa fa-clock-o" aria-hidden="true"></i>{{duration.text}}</span>
-            <span class="result-secondary">{{distance.text}}</span>
+            <span class="result-secondary">{{distance.text}}{{#if altitude}} - <i class="fa fa-arrow-up" aria-hidden="true"></i> {{altitude}} m{{/if}}
+            {{#if tarifs}} - <i class="fa fa-eur" aria-hidden="true"></i> {{tarifs}}{{/if}}</span>
           </div>
 
           <div class="modelogo">
