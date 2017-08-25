@@ -1,0 +1,15 @@
+{{> header}}
+
+<link rel='stylesheet' href='/stylesheets/index.css' />
+
+<div class="introduction">
+  <p>Connectez-vous pour enregistrer vos trajets</p>
+</div>
+
+<div class="form-container">
+  <form id="index-form" action="/login/trylogin" method="post">
+    <input id="login" name="login" type="text" placeholder="Votre Email" class=""> 
+    <input id="password" name="password" type="password" placeholder="Votre mot de passe" class="">
+    <input type="submit" value="Se connecter">
+  </form>
+</div>
