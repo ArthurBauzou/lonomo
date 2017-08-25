@@ -16,29 +16,48 @@ modeBtns.forEach((el)=> {
 let form = document.getElementById('index-form')
 let departure = document.getElementById('departure')
 let arrival = document.getElementById('arrival')
+
 form.addEventListener('submit', (e)=>{
   e.preventDefault();
 
-  // if (departure.className !== "okay") {
-  //   departure.style.backgroundColor="pink";
-  // }
-  // if (arrival.className !== "okay") {
-  //   arrival.style.backgroundColor="pink";
-  // }
-
-  let request = {
-    "departure": departure.value,
-    "arrival": arrival.value
+  // err feedback
+  if (departure.value === '') {
+    departure.style.backgroundColor="pink";
+  } else {
+    departure.style.backgroundColor="white";
+  }
+  if (arrival.value === '') {
+    arrival.style.backgroundColor="pink";
+  } else {
+    arrival.style.backgroundColor="white";
   }
 
-  modeBtns.forEach((el)=> {
-    let modeName = el.getAttribute("name")
-    console.log(modeName)
-    if (el.className === 'btnActive') {
-      request[modeName] = true
-    } else {
-      request[modeName] = false
+  // request
+  if (departure.value !== '' && arrival.value !== '') {
+    let request = {
+      "departure": departure.value,
+      "arrival": arrival.value
     }
-  })
-  console.log(request)
+
+    modeBtns.forEach((el)=> {
+      let modeName = el.getAttribute("name")
+      console.log(modeName)
+      if (el.className === 'btnActive') {
+        request[modeName] = true
+      } else {
+        request[modeName] = false
+      }
+    })
+
+    console.log(request)
+
+    var data = new FormData();
+    data.append("json", JSON.stringify(request));
+
+    fetch("/apis", {
+      method: "POST",
+      body: data
+    })
+  }
+
 })
