@@ -13,7 +13,7 @@ router.post('/', (req, res, next)=> {
 
   request.post({url:"http://localhost:3000/apis", form: req.body}, (err, httpResponse, data)=> {
     superdata = {"tags": JSON.parse(data)}
-    superdata.title = 'results'
+    superdata.title = 'Lonomo - Resultats de la recherche'
     console.log(superdata)
 
     res.render('results', superdata)
@@ -23,28 +23,8 @@ router.post('/', (req, res, next)=> {
 })
 
 router.get('/', function(req, res, next) {
-
-  
-  res.render('results', {
-    title: 'Lonomo',
-    tags: [
-      {
-        duration: '2h15',
-        distance: 12.3,
-        walking: true
-      },
-      {
-        duration: '0h53',
-        distance: 13.9,        
-        bicycle: true
-      },
-      {
-        duration: '0h15',
-        distance: 14.0,        
-        transit: true
-      }
-    ]
-  });
+ 
+  res.send('Erreur');
 });
 
 module.exports = router
